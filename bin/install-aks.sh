@@ -2,7 +2,7 @@
 
 # Make sure the command is launched interactive.
 if ! [ -t 0  ]; then
-  echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://www.screenlyapp.com/install-ose.sh)"
+  echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://aksdev.nl/akssignage/install-aks.sh)"
   exit 1
 fi
 
@@ -11,12 +11,12 @@ tput setaf 4
 
 cat << EOF
 
-    ___    __ _______    _____ _                            
-   /   |  / //_/ ___/   / ___/(_)___ _____  ____ _____ ____ 
+    ___    __ _______    _____ _
+   /   |  / //_/ ___/   / ___/(_)___ _____  ____ _____ ____
   / /| | / ,<  \__ \    \__ \/ / __ `/ __ \/ __ `/ __ `/ _ \
  / ___ |/ /| |___/ /   ___/ / / /_/ / / / / /_/ / /_/ /  __/
-/_/  |_/_/ |_/____/   /____/_/\__, /_/ /_/\__,_/\__, /\___/ 
-                             /____/            /____/       
+/_/  |_/_/ |_/____/   /____/_/\__, /_/ /_/\__,_/\__, /\___/
+                             /____/            /____/
 
 EOF
 
@@ -31,7 +31,7 @@ if [ "$INSTALL" != 'y' ]; then
   exit 1
 fi
 
-echo && read -p "Would you like to use the experimental branch? It contains the last major changes, such as the new browser and migrating to Docker (y/N) NO!" -n 1 -r -s EXP && echo
+echo && read -p "Would you like to use the experimental branch? It contains the last major changes, such as the new browser and migrating to Docker (y/N) ABSOLUTELY NOT!" -n 1 -r -s EXP && echo
 if [ "$EXP" != 'y'  ]; then
   echo && read -p "Would you like to use the development branch? You will get the latest features, but things may break. (y/N) YES!" -n 1 -r -s DEV && echo
   if [ "$DEV" != 'y'  ]; then
@@ -48,7 +48,7 @@ fi
 
 echo && read -p "Do you want Screenly to manage your network? This is recommended for most users because this adds features to manage your network. (Y/n) YES!" -n 1 -r -s NETWORK && echo
 
-echo && read -p "Would you like to install the WoTT agent to help you manage security of your Raspberry Pi? (y/N) NO!" -n 1 -r -s WOTT && echo
+echo && read -p "Would you like to install the WoTT agent to help you manage security of your Raspberry Pi? (y/N) ABSOLUTELY NOT!" -n 1 -r -s WOTT && echo
 if [ "$WOTT" = 'y' ]; then
     curl -s https://packagecloud.io/install/repositories/wott/agent/script.deb.sh | sudo bash
     sudo apt install wott-agent
