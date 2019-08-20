@@ -1,22 +1,18 @@
 [![Build Status](https://travis-ci.org/Screenly/screenly-ose.svg?branch=master)](https://travis-ci.org/Screenly/screenly-ose)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5905ebcf4aab4220ad9fdf3fb679c49d)](https://www.codacy.com/app/vpetersson/screenly-ose?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Screenly/screenly-ose&amp;utm_campaign=Badge_Grade)
 
-# Screenly OSE - Digital Signage for the Raspberry Pi
-
-[Which Screenly version is right for me?](https://www.screenly.io/screenly-ose-vs-pro/)
-
-**PLEASE NOTE:** Screenly OSE and the commercial version of Screenly (formerly known as Screenly Pro) are **two completely separate products**. They **do not share any code base and behave very differently** both with regards to management and performance. Hence do not use one to evaluate the other.
+# AKS Signage - Digital Signage for the Raspberry Pi
 
 ## Disk images
 
-The recommended installation method is to grab the latest disk image from [here](https://github.com/Screenly/screenly-ose/releases).
+The recommended installation method is to grab the latest disk image from [here](https://github.com/damienpeerbolte/AKSSignage/releases).
 
 ## Installing on Raspbian
 
 The tl;dr for installing Screenly OSE on [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/) is:
 
 ```
-$ bash <(curl -sL https://www.screenly.io/install-ose.sh)
+$ bash <(curl -sL https://www.example.com/install.sh)
 ```
 
 **This installation will take 15 minutes to several hours**, depending on variables such as:
@@ -27,7 +23,7 @@ $ bash <(curl -sL https://www.screenly.io/install-ose.sh)
 
 During ideal conditions (Raspberry Pi 3 Model B+, class 10 SD card and fast internet connection), the installation normally takes 15-30 minutes. On a Raspberry Pi Zero or Raspberry Pi Model B with a class 4 SD card, the installation will take hours. As such, it is usually a lot faster to use the provided disk images.
 
-## Upgrading on Screenly OSE
+## Upgrading on AKS Signage
 
 The releases are based on the [Sprints](https://github.com/Screenly/screenly-ose/projects). At the end of each sprint, we merge the master branch (also known as the developer version), into the production branch and generate a new disk image.
 
