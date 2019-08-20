@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <h1 class="page-header">
+                    System Info
+                </h1>
+
+                <table class="table table-bordered" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <th>Load Average</th>
+                        <th>Free Space</th>
+                        <th>Uptime</th>
+                        <th>Monitor Info</th>
+                        <th>Display Power</th>
+                        <th>Raspberry Model</th>
+                        <th>Screenly Version</th>
+                        <th>MAC Address</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ context.loadavg }}</td>
+                        <td>{{ context.free_space }}</td>
+                        <td>{{ context.uptime.days }} days and {{ (context.uptime.seconds / 3600)|round(2) }} hours</td>
+                        <td>{{ context.display_info }}</td>
+                        <td>{{ context.display_power }}</td>
+                        <td>{{ context.raspberry_model }}</td>
+                        <td>{{ context.screenly_version }}</td>
+                        <td>{{ context.mac_address }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <section>
+                    <div class="header bg-primary">Latest Viewer Logs</div>
+                </section>
+
+                {% if context.viewlog %}
+                    <table class="table table-striped">
+                        {% for line in context.viewlog %}
+                            <tr>
+                                <td>{{ line }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p>There are no recent log messages.</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
