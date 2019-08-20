@@ -10,12 +10,14 @@ fi
 tput setaf 4
 
 cat << EOF
-   _____                           __         ____  _____ ______
-  / ___/_____________  ___  ____  / /_  __   / __ \/ ___// ____/
-  \__ \/ ___/ ___/ _ \/ _ \/ __ \/ / / / /  / / / /\__ \/ __/
- ___/ / /__/ /  /  __/  __/ / / / / /_/ /  / /_/ /___/ / /___
-/____/\___/_/   \___/\___/_/ /_/_/\__, /   \____//____/_____/
-                                 /____/
+
+    ___    __ _______    _____ _                            
+   /   |  / //_/ ___/   / ___/(_)___ _____  ____ _____ ____ 
+  / /| | / ,<  \__ \    \__ \/ / __ `/ __ \/ __ `/ __ `/ _ \
+ / ___ |/ /| |___/ /   ___/ / / /_/ / / / / /_/ / /_/ /  __/
+/_/  |_/_/ |_/____/   /____/_/\__, /_/ /_/\__,_/\__, /\___/ 
+                             /____/            /____/       
+
 EOF
 
 # Reset color
@@ -29,9 +31,9 @@ if [ "$INSTALL" != 'y' ]; then
   exit 1
 fi
 
-echo && read -p "Would you like to use the experimental branch? It contains the last major changes, such as the new browser and migrating to Docker (y/N)" -n 1 -r -s EXP && echo
+echo && read -p "Would you like to use the experimental branch? It contains the last major changes, such as the new browser and migrating to Docker (y/N) NO!" -n 1 -r -s EXP && echo
 if [ "$EXP" != 'y'  ]; then
-  echo && read -p "Would you like to use the development branch? You will get the latest features, but things may break. (y/N)" -n 1 -r -s DEV && echo
+  echo && read -p "Would you like to use the development branch? You will get the latest features, but things may break. (y/N) YES!" -n 1 -r -s DEV && echo
   if [ "$DEV" != 'y'  ]; then
     export DOCKER_TAG="production"
     BRANCH="production"
@@ -44,15 +46,15 @@ else
   BRANCH="experimental"
 fi
 
-echo && read -p "Do you want Screenly to manage your network? This is recommended for most users because this adds features to manage your network. (Y/n)" -n 1 -r -s NETWORK && echo
+echo && read -p "Do you want Screenly to manage your network? This is recommended for most users because this adds features to manage your network. (Y/n) YES!" -n 1 -r -s NETWORK && echo
 
-echo && read -p "Would you like to install the WoTT agent to help you manage security of your Raspberry Pi? (y/N)" -n 1 -r -s WOTT && echo
+echo && read -p "Would you like to install the WoTT agent to help you manage security of your Raspberry Pi? (y/N) NO!" -n 1 -r -s WOTT && echo
 if [ "$WOTT" = 'y' ]; then
     curl -s https://packagecloud.io/install/repositories/wott/agent/script.deb.sh | sudo bash
     sudo apt install wott-agent
 fi
 
-echo && read -p "Would you like to perform a full system upgrade as well? (y/N)" -n 1 -r -s UPGRADE && echo
+echo && read -p "Would you like to perform a full system upgrade as well? (y/N) YES!" -n 1 -r -s UPGRADE && echo
 if [ "$UPGRADE" != 'y' ]; then
   EXTRA_ARGS="--skip-tags enable-ssl,system-upgrade"
 else
@@ -93,7 +95,7 @@ fi
 
 sudo pip install ansible==2.8.1
 
-ansible localhost -m git -a "repo=${1:-https://github.com/screenly/screenly-ose.git} dest=/home/pi/screenly version=$BRANCH"
+ansible localhost -m git -a "repo=${1:-https://github.com/damienpeerbolte/AKSSignage.git} dest=/home/pi/screenly version=$BRANCH"
 cd /home/pi/screenly/ansible
 
 ansible-playbook site.yml $EXTRA_ARGS
