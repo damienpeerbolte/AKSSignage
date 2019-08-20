@@ -24,7 +24,7 @@ EOF
 tput sgr 0
 
 
-echo -e "Screenly OSE requires a dedicated Raspberry Pi / SD card.\nYou will not be able to use the regular desktop environment once installed.\n"
+echo -e "AKS Signage requires a dedicated Raspberry Pi / SD card.\nYou will not be able to use the regular desktop environment once installed.\n"
 read -p "Do you still want to continue? (y/N)" -n 1 -r -s INSTALL
 if [ "$INSTALL" != 'y' ]; then
   echo
@@ -46,7 +46,7 @@ else
   BRANCH="experimental"
 fi
 
-echo && read -p "Do you want Screenly to manage your network? This is recommended for most users because this adds features to manage your network. (Y/n) YES!" -n 1 -r -s NETWORK && echo
+echo && read -p "Do you want AKS Signage to manage your network? This is recommended for most users because this adds features to manage your network. (Y/n) YES!" -n 1 -r -s NETWORK && echo
 
 echo && read -p "Would you like to install the WoTT agent to help you manage security of your Raspberry Pi? (y/N) ABSOLUTELY NOT!" -n 1 -r -s WOTT && echo
 if [ "$WOTT" = 'y' ]; then
