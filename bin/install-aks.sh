@@ -2,22 +2,33 @@
 
 # Make sure the command is launched interactive.
 if ! [ -t 0  ]; then
-  echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://aksdev.nl/akssignage/install-aks.sh)"
+  echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL http://aksdev.nl/akssignage/install-aks.sh)"
   exit 1
 fi
 
 # Set color of logo
-tput setaf 4
+tput setaf 1
 
 cat << EOF
-
-    ___    __ _______    _____ _
-   /   |  / //_/ ___/   / ___/(_)___ _____  ____ _____ ____
-  / /| | / ,<  \__ \    \__ \/ / __ `/ __ \/ __ `/ __ `/ _ \
- / ___ |/ /| |___/ /   ___/ / / /_/ / / / / /_/ / /_/ /  __/
-/_/  |_/_/ |_/____/   /____/_/\__, /_/ /_/\__,_/\__, /\___/
-                             /____/            /____/
-
+                                                                        
+                                                                        
+               AAA               KKKKKKKKK    KKKKKKK   SSSSSSSSSSSSSSS 
+              A:::A              K:::::::K    K:::::K SS:::::::::::::::S
+             A:::::A             K:::::::K    K:::::KS:::::SSSSSS::::::S
+            A:::::::A            K:::::::K   K::::::KS:::::S     SSSSSSS
+           A:::::::::A           KK::::::K  K:::::KKKS:::::S            
+          A:::::A:::::A            K:::::K K:::::K   S:::::S            
+         A:::::A A:::::A           K::::::K:::::K     S::::SSSS         
+        A:::::A   A:::::A          K:::::::::::K       SS::::::SSSSS    
+       A:::::A     A:::::A         K:::::::::::K         SSS::::::::SS  
+      A:::::AAAAAAAAA:::::A        K::::::K:::::K           SSSSSS::::S 
+     A:::::::::::::::::::::A       K:::::K K:::::K               S:::::S
+    A:::::AAAAAAAAAAAAA:::::A    KK::::::K  K:::::KKK            S:::::S
+   A:::::A             A:::::A   K:::::::K   K::::::KSSSSSSS     S:::::S
+  A:::::A               A:::::A  K:::::::K    K:::::KS::::::SSSSSS:::::S
+ A:::::A                 A:::::A K:::::::K    K:::::KS:::::::::::::::SS 
+AAAAAAA                   AAAAAAAKKKKKKKKK    KKKKKKK SSSSSSSSSSSSSSS   
+                                                                        
 EOF
 
 # Reset color

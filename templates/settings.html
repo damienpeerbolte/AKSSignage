@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="page-header">
-                    Settings
+                    Instellingen
                 </h1>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 {% endif %}
                 <form method="post">
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Player name</label>
+                        <label class="col-2 col-form-label">Naam speler</label>
                         <div class="col-3">
                             <input class="form-control" name="player_name" type="text"
                                    value="{{ context.player_name }}">
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Show splash screen</label>
+                        <label class="col-2 col-form-label">Laat splashscreen zien</label>
                         <div class="col-3">
                             <label id="splash_checkbox" class="checkbox toggle card card-body bg-light form-control">
                                 {% if context.show_splash %}
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Shuffle playlist</label>
+                        <label class="col-2 col-form-label">Shuffle afspeellijst</label>
                         <div class="col-3">
                             <label id="shuffle_checkbox" class="checkbox toggle card card-body bg-light">
                                 {% if context.shuffle_playlist %}
@@ -66,8 +66,8 @@
                                     <input name="shuffle_playlist" type="checkbox"/>
                                 {% endif %}
                                 <p>
-                                    <span class="on">On</span>
-                                    <span class="off">Off</span>
+                                    <span class="on">Aan</span>
+                                    <span class="off">Uit</span>
                                 </p>
                                 <a class="btn btn-primary slide-button"></a>
                             </label>
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Audio output</label>
+                        <label class="col-2 col-form-label">Geluid output</label>
                         <div class="col-2">
                             <select class="form-control" name="audio_output">
                                 {% if context.audio_output == 'hdmi' %}
@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Default duration</label>
+                        <label class="col-2 col-form-label">Standaard duur</label>
                         <div class="col-1">
                             <input class="form-control" name="default_duration" type="number"
                                    value="{{ context.default_duration }}"/>
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Default streaming duration</label>
+                        <label class="col-2 col-form-label">Standaard stream duur</label>
                         <div class="col-1">
                             <input class="form-control" name="default_streaming_duration" type="number"
                                    value="{{ context.default_streaming_duration }}"/>
@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Date format</label>
+                        <label class="col-2 col-form-label">Datumnotatie</label>
                         <div class="col-2">
                             <select class="form-control" name="date_format">
                                 <option value="mm/dd/yyyy"
@@ -138,7 +138,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Use 24-hour clock</label>
+                        <label class="col-2 col-form-label">Gebruik 24-uurs klok</label>
                         <div class="col-3">
                             <label id="use_24_hour_clock_checkbox" class="checkbox toggle card card-body bg-light">
                                 {% if context.use_24_hour_clock %}
@@ -147,8 +147,8 @@
                                     <input name="use_24_hour_clock" type="checkbox"/>
                                 {% endif %}
                                 <p>
-                                    <span class="on">On</span>
-                                    <span class="off">Off</span>
+                                    <span class="on">Aan</span>
+                                    <span class="off">Uit</span>
                                 </p>
                                 <a class="btn btn-primary slide-button"></a>
                             </label>
@@ -165,8 +165,8 @@
                                     <input name="debug_logging" type="checkbox">
                                 {% endif %}
                                 <p>
-                                    <span class="on">On</span>
-                                    <span class="off">Off</span>
+                                    <span class="on">Aan</span>
+                                    <span class="off">Uit</span>
                                 </p>
                                 <a class="btn btn-primary slide-button"></a>
                             </label>
@@ -174,7 +174,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-2 col-form-label">Authentication</label>
+                        <label class="col-2 col-form-label">Authenticatie</label>
                         <div class="col-3">
                             <select class="custom-select my-1 mr-sm-2" id="auth_backend" name="auth_backend">
                             {% for opt in context.auth_backends %}
@@ -185,7 +185,7 @@
                     </div>
                     {% if context.need_current_password %}
                     <div class="form-group row" id="curpassword_group">
-                        <label class="col-2 col-form-label">Current Password</label>
+                        <label class="col-2 col-form-label">Huidig wachtwoord</label>
                         <div class="col-3">
                             <input class="form-control" name="current-password" type="password" value="">
                         </div>
@@ -203,7 +203,7 @@
                     <div class="form-actions form-group row">
                         <div class="offset-1 col-3">
                             <input class="btn btn-primary" type="submit" value="Save Settings">
-                            <a class="btn btn-outline-secondary" href="/">Cancel</a>
+                            <a class="btn btn-outline-secondary" href="/">Annuleren</a>
                         </div>
                     </div>
                 </form>
@@ -214,16 +214,12 @@
             <div class="row">
                 <div id="wifi-section" class="col-12">
                     <h1 class="page-header">
-                        Reset wifi config
+                        Herstel WiFi configuratie
                     </h1>
-                    <p>Run it, and if the next boot does not have a network connection, you will be prompted to select a
-                        WiFi
-                        network. <br><b>Warning:</b> after pressing, a reboot is required. Web interface will not be
-                        available
-                        until reboot.</p>
+                    <p>Voer het uit en als de volgende boot geen netwerkverbinding heeft, wordt u gevraagd om een WiFi-netwerk te selecteren.
+                        <br><b>Waarschuwing:</b> opnieuw opstarten vereist. Webinterface is niet beschikbaar tot opnieuw opstarten.</p>
                     <div class="form-actions">
-                        <button id="btn-reset" class="btn btn-primary" type="button">Re-run
-                            network detection
+                        <button id="btn-reset" class="btn btn-primary" type="button">Voer netwerkdetectie opnieuw uit
                         </button>
                     </div>
                 </div>
@@ -233,12 +229,12 @@
         <div class="row">
             <div id="backup-section" class="col-12">
                 <h1 class="page-header">
-                    Backup
+                    Back-up
                 </h1>
                 <div class="form-actions">
                     <input name="backup_upload" style="display:none" type="file">
-                    <button id="btn-upload" class="btn btn-primary" type="button">Upload and Recover</button>
-                    <button id="btn-backup" class="btn btn-outline-secondary">Get backup</button>
+                    <button id="btn-upload" class="btn btn-primary" type="button">Upload en Herstel</button>
+                    <button id="btn-backup" class="btn btn-outline-secondary">Back-up</button>
                     <div class="progress-bar progress-bar-striped progress active" style="display:none">
                         <div class="bar"></div>
                     </div>
