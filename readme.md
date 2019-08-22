@@ -29,7 +29,7 @@ During ideal conditions (Raspberry Pi 3 Model B+, class 10 SD card and fast inte
  * [QA Checklist](https://www.forgett.com/checklist/1789089623)
  * [API Docs](http://ose.demo.screenlyapp.com/api/docs/)
 
-Screenly OSE works on all Raspberry Pi versions, including Raspberry Pi Zero and Raspberry Pi 3 Model B.
+AKS Signage works on all Raspberry Pi versions, including Raspberry Pi Zero and Raspberry Pi 3 Model B.
 
 ## Dockerized Development Environment
 
