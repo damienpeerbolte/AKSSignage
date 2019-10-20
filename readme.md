@@ -30,22 +30,3 @@ During ideal conditions (Raspberry Pi 3 Model B+, class 10 SD card and fast inte
  * [API Docs](http://ose.demo.screenlyapp.com/api/docs/)
 
 AKS Signage works on all Raspberry Pi versions, including Raspberry Pi Zero and Raspberry Pi 3 Model B.
-
-## Dockerized Development Environment
-
-To simplify development of the server module of AKS Signage, we've created a Docker container. This is intended to run on your local machine with the AKS Signage repository mounted as a volume.
-
-Assuming you're in the source code repository, simply run:
-
-```
-$ docker run --rm -it \
-    --name=screenly-dev \
-    -e 'LISTEN=0.0.0.0' \
-    -p 8080:8080 \
-    -v $(pwd):/home/pi/screenly \
-    screenly/ose-dev-server
-```
-
-## Running the Unit Tests
-
-    nosetests --with-doctest
