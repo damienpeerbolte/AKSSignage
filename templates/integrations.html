@@ -1,91 +1,90 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
+    <div class="container pt-3 pb-3">
         <div class="row">
             <div class="col-12">
-                <h1 class="page-header">
-                    Integraties
-                </h1>
+                <h5 class="page-header">
+                    <b>Integraties</b>
+                </h5>
             </div>
         </div>
-
-        {% if context.is_balena %}
-            <div class="row">
+    </div>
+    <div class="container">
+        <div class="row content">
+            {% if context.is_balena %}
                 <div id="balena-section" class="col-12">
-                    <h1 class="page-header">
-                        Balena
-                    </h1>
-                    <table class="table table-striped">
-                        <thead>
+                    <h4 class="page-header">
+                        <b>Balena</b>
+                    </h4>
+                    <table class="table">
+                        <thead class="table-borderless">
                         <tr>
-                            <th scope="col">Optie</th>
-                            <th scope="col">Waarde</th>
-                            <th scope="col">Beschrijving</th>
+                            <th class="text-secondary font-weight-normal" scope="col">Optie</th>
+                            <th class="text-secondary font-weight-normal" scope="col">Waarde</th>
+                            <th class="text-secondary font-weight-normal" scope="col">Beschrijving</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <th scope="row">Apparaat naam</th>
+                            <th scope="row">Apparaat Naam</th>
                             <td>{{ context.balena_device_name_at_init }}</td>
-                            <td>The name of the device on first initialisation.</td>
+                            <td>De naam van het apparaat bij de eerste initialisatie.</td>
                         </tr>
                         <tr>
                             <th scope="row">Apparaat UUID</th>
                             <td>{{ context.balena_device_id }}</td>
-                            <td>Het unieke identificatienummer voor het apparaat. Dit wordt gebruikt om het op balena te identificeren.
+                            <td>Het unieke identificatie nummer voor het apparaat. Dit word gebruikt om het te identificeren bij Balena.
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">App ID</th>
+                            <th scope="row">Applicatie ID</th>
                             <td>{{ context.balena_app_id }}</td>
-                            <td>ID-nummer van de balena-applicatie waaraan het apparaat is gekoppeld.</td>
+                            <td>ID nummer van de Balena applicatie waaraan het apparaat is gekoppeld.</td>
                         </tr>
                         <tr>
-                            <th scope="row">App Naam</th>
+                            <th scope="row">Applicatie Naam</th>
                             <td>{{ context.balena_app_name }}</td>
-                            <td>De naam van de balena-toepassing waaraan het apparaat is gekoppeld.</td>
+                            <td>De naam van de Balena applicatie waaraan het apparaat is gekoppeld.</td>
                         </tr>
                         <tr>
-                            <th scope="row">Supervisor Versie</th>
+                            <th scope="row">Supervisor-Versie</th>
                             <td>{{ context.balena_supervisor_version }}</td>
-                            <td>De huidige versie van de supervisor-agent die op het apparaat wordt uitgevoerd.</td>
+                            <td>De huidige versie van de supervisor-agent die word uitgevoerd op het apparaat.</td>
                         </tr>
                         <tr>
                             <th scope="row">Host OS Versie</th>
                             <td>{{ context.balena_host_os_version }}</td>
-                            <td>De versie van het host-besturingssysteem.</td>
+                            <td>De versie van het host OS.</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        {% endif %}
+            {% endif %}
 
-        {% if context.is_wott_installed %}
-            <div class="row">
+            {% if context.is_wott_installed %}
                 <div id="wott-section" class="col-12">
-                    <h1 class="page-header">
-                        WoTT
-                    </h1>
-                    <table class="table table-striped">
-                        <thead>
+                    <h4 class="page-header">
+                        <b>WoTT</b>
+                    </h4>
+                    <table class="table">
+                        <thead class="table-borderless">
                         <tr>
-                            <th scope="col">Optie</th>
-                            <th scope="col">Waarde</th>
-                            <th scope="col">Beschrijving</th>
+                            <th class="text-secondary font-weight-normal" scope="col">Option</th>
+                            <th class="text-secondary font-weight-normal" scope="col">Value</th>
+                            <th class="text-secondary font-weight-normal" scope="col">Description</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <th scope="row">Apparaat ID</th>
+                            <th scope="row">Device ID</th>
                             <td>{{ context.wott_device_id }}</td>
-                            <td>WoTT Apparaat ID.</td>
+                            <td>WoTT Device ID.</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        {% endif %}
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
