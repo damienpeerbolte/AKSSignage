@@ -1,9 +1,9 @@
 <meta charset="utf-8"/>
 
 {% if context.player_name %}
-    <title>AKS Signage - {{ context.player_name }}</title>
+    <title>AKSSignage - {{ context.player_name }}</title>
 {% else %}
-    <title>AKS Signage</title>
+    <title>AKSSignage</title>
 {% endif %}
 
 <link href="/static/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon-precomposed" sizes="57x57"/>
@@ -27,7 +27,6 @@
 <meta content="/static/favicons/mstile-310x150.png" name="msapplication-wide310x150logo"/>
 <meta content="/static/favicons/mstile-310x310.png" name="msapplication-square310x310logo"/>
 
-<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"/>
 <link href="{{ url_for('static', filename='css/screenly.css') }}" rel="stylesheet"/>
 
 <link href="{{ url_for('static', filename='fontawesome/css/all.css') }}" rel="stylesheet"/>
@@ -36,7 +35,7 @@
 
 <script src="{{ url_for('static', filename='js/jquery-1.9.1.min.js') }}"></script>
 
-{% if is_demo %}
+{% if context.is_demo %}
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37846380-3"></script>
     <script>
