@@ -26,7 +26,7 @@ if [ "$WEB_UPGRADE" = false ]; then
 
   # Make sure the command is launched interactive.
   if ! [ -t 0  ]; then
-    echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://www.screenlyapp.com/install-ose.sh)"
+    echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL http://aksdev.nl/akssignage/install-aks.sh)"
     exit 1
   fi
 
