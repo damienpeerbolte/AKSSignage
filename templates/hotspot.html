@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8"/>
     <title>Hotspot Pagina</title>
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/static/css/screenly.css" rel="stylesheet"/>
     <style type="text/css">
         html, body {
@@ -24,15 +23,15 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <p>Geen netwerk verbinding gevonden. Er is een access point gecreëerd <br>om de WiFi te configureren,
-                    verbind met de wifi<br>met uw computer of een mobiel apparaat</p>
+                <p>Geen netwerk verbinding gevonden. Er is een access point gecreëerd. <br>Om de Wi-Fi te configureren,
+                    verbind met het access point <br>via uw computer of mobiel apparaat</p>
                 <div class="form-actions">
                 <span>
-                    SSID: {{ context.network }}
+                    Wi-Fi: {{ context.network }}
                     <br>
-                    Password: {{ context.ssid_pswd }}
+                    Wachtwoord: {{ context.ssid_pswd }}
                     <br>
-                    Address: {{ context.address }}
+                    Addres: {{ context.address }}
                 </span>
                 </div>
             </div>

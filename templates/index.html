@@ -3,7 +3,6 @@
 {% block head %}
     <link href="{{ url_for('static', filename='css/datepicker.css') }}" rel="stylesheet"/>
     <link href="{{ url_for('static', filename='css/timepicker.css') }}" rel="stylesheet"/>
-    <link href="{{ url_for('static', filename='css/toggle-switch.css') }}" rel="stylesheet"/>
 
     <script src="{{ url_for('static', filename='js/underscore-1.4.3.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
@@ -48,27 +47,27 @@
         <td style="width:13%">
             <%= duration %>
         </td>
+        <td class="asset-toggle" style="width:7%">
+            <label class="is_enabled-toggle toggle switch-light switch-ios small m-0">
+                <input type="checkbox"/>
+                <span>
+                    <span class="off"></span>
+                    <span class="on"></span>
+                    <a></a>
+                </span>
+            </label>
+        </td>
         <td class="asset_row_btns">
-            <button class="download-asset-button btn btn-outline-secondary" type="button">
+            <button class="download-asset-button btn btn-outline-dark" type="button">
                 <i class="fas fa-download"></i>
             </button>
-            <button class="edit-asset-button btn btn-outline-secondary" type="button">
+            <button class="edit-asset-button btn btn-outline-dark" type="button">
                 <i class="fas fa-pencil-alt"></i>
             </button>
-            <button class="delete-asset-button btn btn-outline-secondary" data-html="true" data-placement="left"
+            <button class="delete-asset-button btn btn-outline-dark" data-html="true" data-placement="left"
                     data-title="Are you sure?" data-trigger="manual" type="button">
                 <i class="far fa-trash-alt"></i>
             </button>
-        </td>
-        <td class="asset-toggle" style="width:7%">
-            <label class="is_enabled-toggle checkbox toggle card card-body bg-light">
-                <input type="checkbox"/>
-                <p>
-                    <span class="on">Aan</span>
-                    <span class="off">Uit</span>
-                </p>
-                <a class="slide-button btn btn-primary"></a>
-            </label>
         </td>
     </script>
 
@@ -78,13 +77,13 @@
                 <a class="confirm-delete btn btn-danger" href="#">Verwijderen</a>
             </div>
             <div class="float-right">
-                <a class="cancel-delete btn btn-outline-secondary" href="#">Annuleren</a>
+                <a class="cancel-delete btn btn-outline-dark" href="#">Annuleren</a>
             </div>
         </div>
     </script>
 
     <script id="processing-message-template" type="text/template">
-        <label class="processing-message">Media aan het verwerken</label>
+        <label class="processing-message">Media in behandeling</label>
     </script>
 
     <script id="request-error-template" type="text/template">
@@ -92,7 +91,7 @@
             <div class="alert alert-danger">
                 <button class="close" data-dismiss="alert" type="button">&times;</button>
                 <span class="msg">
-            Er is een fout opgetreden. Herlaad de pagina en pobeer het opnieuw.
+            Er is iets fout gegaan. Herlaad de pagina en probeer het opnieuw.
           </span>
             </div>
         </div>
@@ -113,7 +112,7 @@
                 <div class="modal-content">
                     <div class="form-horizontal">
                         <div class="modal-header">
-                            <h3 id="modalLabel">Media toevoegen</h3>
+                            <h3 id="modalLabel">Media Toevoegen</h3>
                         </div>
                         <div class="modal-body">
                             <div class="asset-location add">
@@ -124,7 +123,7 @@
                                                 <a class="nav-link" href="#tab-uri">URL</a>
                                             </li>
                                             <li class="tabnav-file_upload nav-item">
-                                                <a class="nav-link" href="#tab-file_upload">Upload</a>
+                                                <a class="nav-link" href="#tab-file_upload">Uploaden</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content">
@@ -133,10 +132,10 @@
                                                 <div class="control-group">
                                                     <div class="filedrop">
                                                         <div class="upload-header">
-                                                            <button class="btn">Bestanden toevoegen..</button>
+                                                            <button class="btn btn-primary">Bestanden toevoegen..</button>
                                                             <input name="file_upload" type="file"/>
                                                             <br/>
-                                                            or
+                                                            of
                                                         </div>
                                                         <div>
                                                             sleep bestanden hierheen om te uploaden
@@ -153,7 +152,7 @@
                                     <label class="col-4 col-form-label">Media URL</label>
                                     <div class="col-7 controls">
                                         <input class="form-control" name="uri"
-                                               placeholder="Public URL to this asset's location" type="text"/>
+                                               placeholder="Publieke URL naar de locatie van de media" type="text"/>
                                     </div>
                                 </div>
                                 <div class="form-group row skip_asset_check_checkbox">
@@ -167,7 +166,7 @@
                                         <label class="col-4 col-form-label">Naam</label>
                                         <div class="col-7">
                                             <input class="form-control" name="name"
-                                                   placeholder="Nickname for this asset" type="text"/>
+                                                   placeholder="Bijnaam voor deze media" type="text"/>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -177,14 +176,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group row mimetype">
-                                        <label class="col-4 col-form-label">Media type</label>
+                                        <label class="col-4 col-form-label">Media Type</label>
                                         <div class="col-4 controls">
                                             <select class="mime-select form-control" name="mimetype">
                                                 <option value="webpage">Webpagina</option>
                                                 <option value="image">Afbeelding</option>
                                                 <option value="video">Video</option>
                                                 <option value="streaming">Stream</option>
-                                                <option value="youtube_asset">YouTubeMedia</option>
+                                                <option value="youtube_asset">YouTube</option>
                                             </select>
                                         </div>
                                     </div>
@@ -197,7 +196,7 @@
                                                 <option value="week">1 Week</option>
                                                 <option value="month">1 Maand</option>
                                                 <option value="year">1 Jaar</option>
-                                                <option value="forever">Voor altijd</option>
+                                                <option value="forever">Altijd</option>
                                                 <option value="manual" selected="selected">Handmatig</option>
                                             </select>
                                         </div>
@@ -240,15 +239,10 @@
                                                 <div class="accordion-inner">
                                                     <div class="form-group row">
                                                         <label class="col-4 col-form-label">Cache uitschakelen</label>
-                                                        <div class="col-8 nocache controls">
-                                                            <label class="nocache-toggle checkbox toggle card card-body bg-light">
-                                                                <input name="nocache" class="form-control"
-                                                                       type="checkbox"/>
-                                                                <p>
-                                                                    <span class="on">Ja</span>
-                                                                    <span class="off">Nee</span>
-                                                                </p>
-                                                                <a class="slide-button btn btn-primary"></a>
+                                                        <div class="col-8 nocache controls justify-content-center align-self-center">
+                                                            <label class="nocache-toggle toggle switch-light switch-ios small m-0">
+                                                                <input type="checkbox"/>
+                                                                <span><span></span><span></span><a></a></span>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -264,8 +258,8 @@
                             <div class="float-left progress active" style="display:none">
                                 <div class="bar progress-bar-striped progress-bar progress-bar-animated"></div>
                             </div>
-                            <input class="btn btn-outline-secondary cancel" type="button" value="Annuleren"/>
-                            <input id="save-asset" class="btn btn-primary" type="submit" value="Opslaan"/>
+                            <input class="btn btn-outline-dark btn-long cancel" type="button" value="Annuleren"/>
+                            <input id="save-asset" class="btn btn-primary btn-long" type="submit" value="Opslaan"/>
                         </div>
                     </div>
                 </div>
@@ -297,101 +291,81 @@
             <div hidden="true" style="position absolute; left -5000px;">
                 <input name="b_adb4f752497b0d86b3b1b79d7_5c47388076" tabindex="-1" type="text"/>
             </div>
-            <input id="mc-embedded-subscribe" class="button btn btn-outline-secondary" name="subscribe" type="submit"
-                   value="Inschrijven"/>
+            <input id="mc-embedded-subscribe" class="button btn btn-outline-dark" name="subscribe" type="submit"
+                   value="Subscribe"/>
         </form>
     </script>
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container pt-3 pb-3">
         <div class="row">
             <div class="col-12">
-                <h1 class="page-header">
-                    <div class="float-right">
-                        <a id="previous-asset-button" class="btn btn-outline-secondary" href="#">
-                            <i class="fas fa-fast-backward"></i>
+                <h5 class="d-flex">
+                    <b class="justify-content-center align-self-center">Overzicht</b>
+                    <div class="ml-auto">
+                        <a id="previous-asset-button" class="btn btn-long btn-outline-dark" href="#">
+                            <i class="fas fa-long-arrow-alt-left pr-2"></i>
                             Vorige Media
                         </a>
-                        <a id="next-asset-button" class="btn btn-outline-secondary" href="#">
-                            <i class="fas fa-fast-forward"></i>
-                            Volgende media
+                        <a id="next-asset-button" class="btn btn-long btn-outline-dark" href="#">
+                            Volgende Media
+                            <i class="fas fa-long-arrow-alt-right pl-2"></i>
                         </a>
-                        <a style="background-color:red; border-color:red;" id="add-asset-button" class="btn btn-primary" href="#">
-                            <i class="fas fa-plus"></i>
-                            Media toevoegen
+                        <a id="add-asset-button" class="add-asset-button btn btn-long btn-primary" href="#">
+                            Media Toevoegen
                         </a>
                     </div>
-                    Schema Overzicht
-                </h1>
+                </h5>
                 {% if context.player_name %}
                     <h2>{{ context.player_name }}</h2>
                 {% endif %}
             </div>
         </div>
-
-        <div id="assets" class="row">
-            <div class="col-12">
-                <section>
-                    <div style="background-color:red;" class="header">
-                        Actieve Media
-                    </div>
-                    <table class="table table-striped active-table">
-                        <thead style="display:none">
+    </div>
+    <div class="container">
+        <div id="assets" class="row content">
+            <div class="col-12 mb-5">
+                <section id="active-assets-section">
+                    <h4>
+                        <b>Actieve Media</b>
+                    </h4>
+                    <table class="table">
+                        <thead class="table-borderless">
                         <tr>
-                            <th class="asset_row_name">Naam</th>
-                            <th style="width:21%">Start</th>
-                            <th style="width:21%">End</th>
-                            <th style="width:13%">Duur</th>
-                            <th style="width:13%"></th>
-                            <th style="width:7%"></th>
+                            <th class="text-secondary font-weight-normal asset_row_name">Naam</th>
+                            <th class="text-secondary font-weight-normal" style="width:21%">Start</th>
+                            <th class="text-secondary font-weight-normal" style="width:21%">Eind</th>
+                            <th class="text-secondary font-weight-normal" style="width:13%">Duur</th>
+                            <th class="text-secondary font-weight-normal" style="width:7%">Activiteit</th>
+                            <th class="text-secondary font-weight-normal" style="width:13%"></th>
                         </tr>
                         </thead>
                         <tbody id="active-assets"></tbody>
                     </table>
+                    <div class="table-assets-help-text text-secondary">Op het moment is hier niks te zien. <a class="add-asset-button" href="#">Voeg nu toe</a>.</div>
                 </section>
             </div>
             <div class="col-12">
-                <section>
-                    <div style="background-color:red;" class="header">
-                        Inactieve Media
-                    </div>
-                    <table class="table table-striped inactive-table">
-                        <thead style="display:none">
+                <section id="inactive-assets-section">
+                    <h4>
+                        <b>Inactieve Media</b>
+                    </h4>
+                    <table class="table">
+                        <thead class="table-borderless">
                         <tr>
-                            <th class="asset_row_name">Naam</th>
-                            <th style="width:21%">Start</th>
-                            <th style="width:21%">End</th>
-                            <th style="width:13%">Duur</th>
-                            <th style="width:13%"></th>
-                            <th style="width:7%"></th>
+                            <th class="text-secondary font-weight-normal asset_row_name">Naam</th>
+                            <th class="text-secondary font-weight-normal" style="width:21%">Start</th>
+                            <th class="text-secondary font-weight-normal" style="width:21%">Eind</th>
+                            <th class="text-secondary font-weight-normal" style="width:13%">Duur</th>
+                            <th class="text-secondary font-weight-normal" style="width:7%">Activiteit</th>
+                            <th class="text-secondary font-weight-normal" style="width:13%"></th>
                         </tr>
                         </thead>
                         <tbody id="inactive-assets"></tbody>
                     </table>
+                    <div class="table-assets-help-text text-secondary">Op het moment is hier niks te zien. <a class="add-asset-button" href="#">Voeg nu toe</a>.</div>
                 </section>
-            </div>
-        </div>
-
-        <hr/>
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-            <span>
-              <a style="color:red;" class="brand"
-                 href="http://aksolutions.nl/"
-                 target="_blank">
-                <strong>AK IT Solutions</strong>
-              </a></span>
-                </div>
-                <div class="col-6">
-            <span>
-              <a style="color:red;" href="javascript://" id="subsribe-form-container" data-html="true" data-trigger="focus"
-                 data-placement="top">
-                <strong>Krijg het laatste nieuws van AKS Signage in uw mail</strong>
-              </a>
-            </span>
-                </div>
             </div>
         </div>
     </div>
